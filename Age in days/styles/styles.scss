@@ -1,0 +1,123 @@
+@mixin  flexer($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@font-face {
+    font-family: 'great vibes';
+    src: url(../fonts/Great_Vibes/GreatVibes-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'frank ruhl';
+    src: url(../fonts/FrankRuhlLibre-Regular.ttf);
+}
+
+body {
+    background-image: linear-gradient(120deg, orange, rgb(250, 250, 76));
+    position: relative;
+
+    .wrapper {
+        height: 100vh;
+        overflow: hidden;
+
+        h1 {
+            text-align: center;
+            margin-top: 2rem;
+            font-family: 'great vibes';
+            font-size: 4rem;
+        }
+
+        .container {
+            width: 60rem;
+            height: 30rem;
+            border-radius: 15px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 5px 10px 10px black;
+            background-image: linear-gradient(120deg, rgb(250, 250, 76), rgb(250, 250, 76), orange);
+
+            .title {
+                width: 100%;
+                height: 30%;
+                @include flexer(center, center, row);
+                
+                h2 {
+                    text-align: center;
+                    font-size: 3.2rem;
+                    font-family: 'frank ruhl';
+                }
+            }
+
+            .input {
+                width: 100%;
+                height: 20%;
+                margin-bottom: 2rem;
+                @include flexer(center, center, row);
+
+                h2 {
+                    margin-right: 2rem;
+                    font-family: 'great vibes';
+                    font-size: 2.5rem;
+                }
+
+                #input-field {
+                    padding: .5rem 2rem;
+                    width: 25rem;
+                    font-size: 2rem;
+                }
+            }
+
+            .body {
+                height: 15%;
+                @include flexer(center, center, row);
+
+                .calculate,
+                .reset {
+                    cursor: pointer;
+                    padding: 1rem 2rem;
+                    border: 1px solid black;
+                    border-radius: none;
+                    font-size: 1.5rem;
+                    font-family: 'frank ruhl';
+                    background-color: tomato;
+                    margin: 0 2rem;
+                }
+            }
+
+            .output {
+                height: 22%;
+                @include flexer(center, center, row);
+                text-align: center;
+
+                h3 {
+                    font-family: 'great vibes';
+                    font-size: 3rem;
+                    color: rgb(73, 73, 73);
+                }
+
+                #display {
+                    font-family: cursive;
+                    font-size: 4rem;
+                    color: black;
+                }
+            }
+        }
+    }
+
+}
